@@ -27,8 +27,10 @@ app.post('/callbacks/geo/:geoName', function(request, response){
    // to one of our subscriptions.
     
    // First, let's verify the payload's integrity
-   if(!helpers.isValidRequest(request))
+   if(!helpers.isValidRequest(request)) {
      response.send('FAIL');
+     return;
+   }
     
     // Go through and process each update. Note that every update doesn't
     // include the updated data - we use the data in the update to query
