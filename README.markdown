@@ -33,7 +33,7 @@ in the original README.
 
 # Configuration
 
-First register a new API client at http://instagram.com/developer/manage/ to
+First register a new API client at http://instagram.com/developer/clients/manage/ to
 get a client id and secret. For this app, the values for website and callback
 URL are not important. I just used http://localhost:3000.
 
