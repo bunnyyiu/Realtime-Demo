@@ -29,22 +29,7 @@ in the original README.
 
     curl http://npmjs.org/install.sh | sh
      
-    sudo npm install redis
-    sudo npm install socket.io
-    sudo npm install express
-    sudo npm install jade
-
-## Install localtunnel
-
-In order to run the application locally, you need a way for the Instagram API
-to publish updates to the app. It does this through webhook callbacks so your
-app needs to be available on the public internet. 
-
-localtunnel is a good solution for this. Follow the installation instructions
-on https://github.com/progrium/localtunnel#readme. If you’re a Ruby developer 
-using RVM and Bundler, my fork of the realtime app includes an .rvmrc and 
-Gemfile that pull in the localtunnel dependency. Just run ‘bundle’ to install 
-it and continue with the configuration instructions from the localtunnel README.
+    npm install
 
 # Configuration
 
@@ -79,28 +64,9 @@ Open another terminal and start the app in Node:
 
     node server.js
 
-Open another terminal and create a localtunnel connection to forward a
-internet-accessible host to your local machine.
-
-    localtunnel 3000
-
-A simple test to make sure the localtunnel connection is working is to hit a
-non-existant URL on your node app in your web browser. You’ll get a 404 from
-the app.
-
-    open http://xxx.localtunnel.com/foo
-
-You should see “Cannot GET /foo” in your browser.
-
-I find that localtunnel connections will sometimes die and I have to kill it
-locally and start it again. If you hit /foo again and it hangs, the connection
-is gone. When you kill and recreate the connection, the URL changes for the
-callback webhook parameter so it’s handy to set this host as another
-environment variable.
-
 Open another terminal and set the tunnel host in your environment:
 
-    export IG_CALLBACK_HOST=http://xxx.localtunnel.com
+    export IG_CALLBACK_HOST=http://yourdoamin
 
 Then add a subscription for San Francisco with a 5k radius.
 
